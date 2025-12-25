@@ -1,2 +1,16 @@
 # boston-housing-random-forest-regression-rshiny
-This project uses random forest regression to predict housing prices in the 1970s using the Boston Housing dataset from Kaggle. Included is an R Shiny Application that allows users to determine a home’s price using the five most influential variables! 
+The goal of this project was to gain an introduction to Random Forest Regression by using the “Boston Housing dataset” from Kaggle (https://www.kaggle.com/datasets/arunjangir245/boston-housing-dataset). This analysis allowed me to determine which variables related to Boston’s housing market in the 1970s were most influential toward making pricing predictions. Additionally, I created an R Shiny Application that allows users to experiment how changes in the most influential variables impact pricing. 
+
+Minimal cleaning was needed toward this dataset and this was examined by looking for any missing and duplicate observations using RStudio.  
+
+To ensure reproducible results for this machine learning method, “set.seed(123)” was used prior to the splitting of training and testing datasets. The split used for this project was 70-30 where 70% of the Boston Housing data was used to train a Random Forest Regression model. 
+
+Once the Random Forest Regression model was trained, predictions were made by applying it to the remaining 30% of data, also known as the unobserved test data. This was followed by examining the model’s Root Mean Square Error (RMSE) which indicates how far the predicted values, on average, are from the true values. This resulted in a value of 3.163596, which suggests that the Random Forest Regression model’s predictions are off by roughly $3,160. Given the high cost of purchasing a home, the difference of this amount is relatively small compared to the final cost of a home in the 1970s. 
+
+R-Squared was also calculated as it provides the percentage of the variance in the dependent variable that is explained by the model’s predictions. The R-Squared value was found to be 0.8684707, suggesting that the model’s predictions explain about 87% of the variance related to median home prices. The values found for RMSE and R-Squared suggest that this model has strong predictive power and offers good generalization to unobserved data. 
+
+Feature importance was used to examine which of the variables were most important for making accurate predictions. Using %IncMSE, the five most critical variables that influence the model’s predictive power were: rm (28.082849), lstat (24.604531), dis (17.281334), crim (16.707057), and nox (16.495244). To permute these variables would result in larger model error, thus these were found to be the most significant variables for predicting median housing prices in the Boston Housing dataset. 
+
+The final step of this project was visually demonstrating the Random Forest Regression predicted values compared to the actual values. On the graph, the plot’s red line demonstrates perfect performance where predicted values perfectly match the actual values. In this project, we observe strong linear correlation where the points closely follow the red line up to nearly $40,000 on the graph. Past the median home value of $40,000, we observe points that less closely follow the red line which indicates that this model can accurately predict low to mid-range values. 
+
+Included is an R Shiny Application that allows you to examine how changes in the five most critical variables impact Boston Housing pricing in the 1970s. Feel free to explore! 
